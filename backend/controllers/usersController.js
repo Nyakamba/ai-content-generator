@@ -1,10 +1,9 @@
 // Registration
 const register = (req, res) => {
-  res,
-    json({
-      status: true,
-      message: "REgistration  was successiful",
-    });
+  res.json({
+    status: true,
+    message: "Registration  was successful",
+  });
 };
 //Login
 //Logout
