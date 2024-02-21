@@ -56,4 +56,4 @@ const userSchema = new mongoose.Schema(
 //*compile to form the model
 const User = mongoose.model("User", userSchema);
 
-module.exports == User;
+module.exports = User;
