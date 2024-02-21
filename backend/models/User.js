@@ -15,6 +15,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    trialPeriod: {
+      type: Number,
+      default: 3,
+    },
     trialActive: {
       type: Boolean,
       default: true,
