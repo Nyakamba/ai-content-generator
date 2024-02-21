@@ -39,7 +39,6 @@ const register = async (req, res) => {
       user: {
         username,
         email,
-        trialExpires,
       },
     });
   } catch (error) {
