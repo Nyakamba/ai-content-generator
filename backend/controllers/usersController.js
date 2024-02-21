@@ -42,9 +42,36 @@ const register = asyncHandler(async (req, res) => {
     },
   });
 });
+
 //Login
+const login = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+  //check for user email
+  const user = await User.findOne({ email });
+  if (!user) {
+    res.status(401);
+    throw new Error("Invalid login credentials");
+  }
+  //check if password is valid
+  const isMatch = await bcrypt.compare(password, user?.password);
+  if (!isMatch) {
+    res.status(401);
+    throw new Error("Invalid login credentials");
+  }
+  //Generate token (jwt)
+  //set the token into cookie(http only)
+
+  //send the response
+  res.json({
+    status: "success",
+    message: "Login success",
+    _id: user?._id,
+    username: user?.username,
+    email: user?.email,
+  });
+});
 //Logout
 //Profile
 //Check user Auth Status
 
-module.exports = { register };
+module.exports = { register, login };
