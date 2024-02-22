@@ -50,8 +50,15 @@ const userSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
   }
 );
+
+//add virtual property
+userSchema.virtual("isTrialActive").get(function () {
+  return this.trialActive && new Date() < this.trialExpires;
+});
 
 //*compile to form the model
 const User = mongoose.model("User", userSchema);
