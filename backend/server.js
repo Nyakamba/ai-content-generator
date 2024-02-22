@@ -1,4 +1,5 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const usersRouter = require("./routes/usersRouter");
 const { errorHandler } = require("./middlewares/errorMiddleware");
@@ -9,6 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 //----middleware----
 app.use(express.json()); //pas incoming json data
+app.use(cookieParser()); //pass the cookie automaticallly
 //-----Routes-----
 app.use("/api/v1/users", usersRouter);
 
