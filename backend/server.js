@@ -2,8 +2,8 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const usersRouter = require("./routes/usersRouter");
-const { errorHandler } = require("./middlewares/errorMiddleware");
 const openAIRouter = require("./routes/openAIRouter");
+const { errorHandler } = require("./middlewares/errorMiddleware");
 require("./utils/connectDB")();
 
 const app = express();
