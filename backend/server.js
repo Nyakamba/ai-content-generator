@@ -3,6 +3,7 @@ const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const usersRouter = require("./routes/usersRouter");
 const { errorHandler } = require("./middlewares/errorMiddleware");
+const openAIRouter = require("./routes/openAIRouter");
 require("./utils/connectDB")();
 
 const app = express();
@@ -13,6 +14,7 @@ app.use(express.json()); //pas incoming json data
 app.use(cookieParser()); //pass the cookie automaticallly
 //-----Routes-----
 app.use("/api/v1/users", usersRouter);
+app.use("/api/v1/openai", openAIRouter);
 
 //--error handler middleware---
 app.use(errorHandler);
