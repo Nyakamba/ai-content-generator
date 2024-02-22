@@ -90,7 +90,7 @@ const logout = asyncHandler(async (req, res) => {
 
 //Profile
 const userProfile = asyncHandler(async (req, res) => {
-  const id = req.user?._id;
+  const id = req.user?.id;
   const user = await User.findById(id).select("-password");
 
   if (user) {
