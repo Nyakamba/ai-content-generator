@@ -48,7 +48,7 @@ const userSchema = new mongoose.Schema(
     history: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "History",
+        ref: "ContentHistory",
       },
     ],
   },
@@ -58,11 +58,6 @@ const userSchema = new mongoose.Schema(
     toObject: { virtuals: true },
   }
 );
-
-//add virtual property
-userSchema.virtual("isTrialActive").get(function () {
-  return this.trialActive && new Date() < this.trialExpires;
-});
 
 //*compile to form the model
 const User = mongoose.model("User", userSchema);
