@@ -1,4 +1,7 @@
 const asyncHandler = require("express-async-handler");
+const calculateNextBillingDate = require("../utils/calculateNextBillingDate");
+const shouldRenewSubscriptionPlan = require("../utils/shouldRenewSubscriptionPlan");
+const Payment = require("../models/Payment");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 //--------Stripe payment-------
@@ -38,11 +41,40 @@ const handleFreeSubscription = asyncHandler(async (req, res) => {
   //Get the login user
   const user = req?.user;
   console.log(user);
-  //calculate the next billing date
+
   //check if user account should be renewed or not
-  //create new payment and save into DB
-  //update the user account
-  //send the response
+  try {
+    if (shouldRenewSubscriptionPlan(user)) {
+      //update the user account
+      user.subscriptionPlan = "Free";
+      user.monthlyRequestCount = 5;
+      user.apiRequestCount = 0;
+      user.nextBillingDate = calculateNextBillingDate();
+      //create new payment and save into DB
+      const newPayment = await Payment.create({
+        user: user?._id,
+        subscriptionPlan: "Free",
+        amount: 0,
+        status: "success",
+        currency: "usd",
+        reference: Math.random().toString(36).substring(7),
+      });
+      user.payments.push(newPayment?._id);
+      //save the user
+      await user.save();
+      //send the response
+      res.json({
+        status: "success",
+        message: "Subscription plan updated successfully",
+        user,
+      });
+    } else {
+      return res.status(403).json({ error: "Subscription not due yet" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error });
+  }
 });
 
 module.exports = { handleStripePayment, handleFreeSubscription };
