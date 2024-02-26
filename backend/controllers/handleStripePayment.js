@@ -33,4 +33,16 @@ const handleStripePayment = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = handleStripePayment;
+//--------Handle free payment-------
+const handleFreeSubscription = asyncHandler(async (req, res) => {
+  //Get the login user
+  const user = req?.user;
+  console.log(user);
+  //calculate the next billing date
+  //check if user account should be renewed or not
+  //create new payment and save into DB
+  //update the user account
+  //send the response
+});
+
+module.exports = { handleStripePayment, handleFreeSubscription };
