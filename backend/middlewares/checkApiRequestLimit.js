@@ -5,6 +5,7 @@ const checkApiRquestLimit = asyncHandler(async (req, res, next) => {
   if (!req.user) {
     return res.status(401).json({ message: "Not authorized" });
   }
+  console.log(req.user);
   //find user
   const user = await User.findById(req?.user?.id);
   if (!user) {
