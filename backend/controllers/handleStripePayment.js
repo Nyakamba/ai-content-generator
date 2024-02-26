@@ -36,6 +36,15 @@ const handleStripePayment = asyncHandler(async (req, res) => {
   }
 });
 
+//--------Verify payment-------
+const verifyPayment = asyncHandler(async (req, res) => {
+  const { paymentId } = req.params;
+  try {
+    const paymentIntent = await stripe.paymentIntents.retrieve(paymentId);
+    console.log(paymentIntent);
+  } catch (error) {}
+});
+
 //--------Handle free payment-------
 const handleFreeSubscription = asyncHandler(async (req, res) => {
   //Get the login user
@@ -77,4 +86,4 @@ const handleFreeSubscription = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { handleStripePayment, handleFreeSubscription };
+module.exports = { handleStripePayment, handleFreeSubscription, verifyPayment };
