@@ -1,17 +1,10 @@
 const express = require("express");
-const {
-  register,
-  login,
-  logout,
-  userProfile,
-} = require("../controllers/usersController");
+
 const isAuthenticated = require("../middlewares/isAuthenticated");
+const handleStripePayment = require("../controllers/handleStripePayment");
 
-const usersRouter = express.Router();
+const stripeRouter = express.Router();
 
-usersRouter.post("/register", register);
-usersRouter.post("/login", login);
-usersRouter.post("/logout", logout);
-usersRouter.get("/profile", isAuthenticated, userProfile);
+stripeRouter.post("/checkout", isAuthenticated, handleStripePayment);
 
-module.exports = usersRouter;
+module.exports = stripeRouter;
