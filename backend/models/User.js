@@ -39,14 +39,18 @@ const userSchema = new mongoose.Schema(
       default: 100, //100credits//3days
     },
     nextBillingDate: Date,
-    payments: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Payment",
-    },
-    history: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "History",
-    },
+    payments: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Payment",
+      },
+    ],
+    history: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "History",
+      },
+    ],
   },
   {
     timestamps: true,
