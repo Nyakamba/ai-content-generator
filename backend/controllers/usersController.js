@@ -117,7 +117,7 @@ const checkAuth = asyncHandler(async (req, res) => {
     });
   } else {
     res.json({
-      iisAuthenticated: false,
+      isAuthenticated: false,
     });
   }
 });
