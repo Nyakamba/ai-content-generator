@@ -53,7 +53,7 @@ const Login = () => {
         )}
         {/*display success  */}
         {mutation.isSuccess && (
-          <StatusMessage type="success" message="Registration success" />
+          <StatusMessage type="success" message="Login success" />
         )}
 
         {/* Form for login */}
