@@ -13,7 +13,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 //Cron for the trial period : run every single day
-cron.schedule("* * * * * *", async () => {
+cron.schedule(" 0 0 * * * * ", async () => {
   try {
     //get the current date
     const today = new Date();
