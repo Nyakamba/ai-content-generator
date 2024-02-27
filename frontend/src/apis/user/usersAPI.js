@@ -29,3 +29,15 @@ export const loginAPI = async (userData) => {
   );
   return response?.data;
 };
+
+//chech auth
+export const checkUserAuthStatusAPI = async (userData) => {
+  const response = await axios.get(
+    "http://localhost:5000/api/v1/users/auth/check",
+
+    {
+      withCredentials: true,
+    }
+  );
+  return response?.data;
+};
