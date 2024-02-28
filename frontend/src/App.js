@@ -5,13 +5,17 @@ import Dashboard from "./components/Users/Dashboard";
 import PrivateNavbar from "./components/Navbar/PrivateNavbar";
 import PublicNavbar from "./components/Navbar/PublicNavbar";
 import Home from "./components/Home/Home";
+import { useAuth } from "./AuthContext/AuthContext";
 
 export default function App() {
+  //custom auth hook
+  const { isAuthenticated } = useAuth();
+
   return (
     <>
       <BrowserRouter>
         {/* Navbar */}
-        <PrivateNavbar />
+        {isAuthenticated ? <PrivateNavbar /> : <PublicNavbar />}
         <Routes>
           <Route path="/register" element={<Registration />} />
           <Route path="/login" element={<Login />} />
