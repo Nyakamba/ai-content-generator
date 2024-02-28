@@ -40,7 +40,7 @@ const Login = () => {
     },
   });
 
-  //update is authenticated
+  //update is authenticated gd
   useEffect(() => {
     if (mutation.isSuccess) {
       login();
