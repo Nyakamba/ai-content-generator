@@ -11,10 +11,13 @@ export const AuthProvider = ({ children }) => {
     queryFn: checkUserAuthStatusAPI,
     queryKey: ["checkAuth"],
   });
+
   //update the authenticated user
   useEffect(() => {
-    setIsAuthenticated(true);
-  }, [data]);
+    if (isSuccess) {
+      setIsAuthenticated(data);
+    }
+  }, [data, isSuccess]);
   //update the user auth after login
   const login = () => {
     setIsAuthenticated(true);
