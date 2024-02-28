@@ -31,10 +31,22 @@ export const loginAPI = async (userData) => {
 };
 
 //chech auth
-export const checkUserAuthStatusAPI = async (userData) => {
+export const checkUserAuthStatusAPI = async () => {
   const response = await axios.get(
     "http://localhost:5000/api/v1/users/auth/check",
 
+    {
+      withCredentials: true,
+    }
+  );
+  return response?.data;
+};
+
+//logout
+export const logoutAPI = async () => {
+  const response = await axios.post(
+    "http://localhost:5000/api/v1/users/logout",
+    {},
     {
       withCredentials: true,
     }
