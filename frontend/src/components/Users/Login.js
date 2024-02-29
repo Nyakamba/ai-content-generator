@@ -57,7 +57,7 @@ const Login = () => {
         {mutation.isPending && (
           <StatusMessage type="loading" message="Loading..." />
         )}
-        {/*display error  */}
+        {/*display of error  */}
         {mutation.isError && (
           <StatusMessage
             type="error"
