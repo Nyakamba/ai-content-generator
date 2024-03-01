@@ -53,7 +53,7 @@ const Login = () => {
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-8">
           Login to Your Account
         </h2>
-        {/*display loading  */}
+        {/*display message loading  */}
         {mutation.isPending && (
           <StatusMessage type="loading" message="Loading..." />
         )}
