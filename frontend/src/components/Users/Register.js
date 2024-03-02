@@ -28,7 +28,7 @@ const Registration = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      // Here, handle the form submission
+      // Here, handle  form submission
       console.log("Form values", values);
       mutation.mutate(values);
 
