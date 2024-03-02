@@ -11,7 +11,6 @@ import AuthRoute from "./components/AuthRoute/AuthRoute";
 export default function App() {
   //custom auth hook
   const { isAuthenticated } = useAuth();
-  console.log(isAuthenticated);
 
   return (
     <>
