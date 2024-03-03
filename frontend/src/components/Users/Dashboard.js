@@ -1,6 +1,13 @@
+import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
+import { getUserProfileApi } from "../../apis/user/usersAPI";
 
 const Dashboard = () => {
+  //get the user profile
+  const { isLoading, isError, data, error } = useQuery({
+    queryFn: getUserProfileApi,
+    queryKey: ["profile"],
+  });
   return (
     <div className="mx-auto p-4 bg-gray-900 w-screen">
       <h1 className="text-3xl font-bold text-center mb-8 text-blue-600">
