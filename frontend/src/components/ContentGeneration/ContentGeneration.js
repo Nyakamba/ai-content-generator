@@ -171,7 +171,7 @@ const BlogPostAIAssistant = () => {
             <h3 className="text-lg font-semibold text-gray-800 mb-2">
               Generated Content:
             </h3>
-            <p className="text-gray-600">{generatedContent}</p>
+            <p className="text-gray-600">{mutation?.data}</p>
           </div>
         )}
       </div>
