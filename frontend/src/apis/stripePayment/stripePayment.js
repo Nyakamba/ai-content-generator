@@ -1,6 +1,6 @@
 import axios from "axios";
 //stripe payment
-export const handleFreeSbscription = async () => {
+export const handleFreeSubscriptionAPI = async () => {
   const response = await axios.post(
     "http://localhost:5000/api/v1/stripe/free-plan",
     {},
