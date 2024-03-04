@@ -10,6 +10,7 @@ import AuthRoute from "./components/AuthRoute/AuthRoute";
 import BlogPostAIAssistant from "./components/ContentGeneration/ContentGeneration";
 import Plans from "./components/Plans/Plan";
 import FreePlanSignup from "./components/StripePayment/FreePlanSignUp";
+import CheckoutForm from "./components/StripePayment/CheckoutForm";
 
 export default function App() {
   //custom auth hook
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/plans" element={<Plans />} />
           <Route path="/free-plan" element={<FreePlanSignup />} />
+          <Route path="/checkout/:plan" element={<CheckoutForm />} />
         </Routes>
       </BrowserRouter>
     </>
