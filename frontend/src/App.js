@@ -7,6 +7,9 @@ import PublicNavbar from "./components/Navbar/PublicNavbar";
 import Home from "./components/Home/Home";
 import { useAuth } from "./AuthContext/AuthContext";
 import AuthRoute from "./components/AuthRoute/AuthRoute";
+import BlogPostAIAssistant from "./components/ContentGeneration/ContentGeneration";
+import Plans from "./components/Plans/Plan";
+import FreePlanSignup from "./components/StripePayment/FreePlanSignUp";
 
 export default function App() {
   //custom auth hook
@@ -28,7 +31,17 @@ export default function App() {
               </AuthRoute>
             }
           />
+          <Route
+            path="/generate-content"
+            element={
+              <AuthRoute>
+                <BlogPostAIAssistant />
+              </AuthRoute>
+            }
+          />
           <Route path="/" element={<Home />} />
+          <Route path="/plans" element={<Plans />} />
+          <Route path="/free-plan" element={<FreePlanSignup />} />
         </Routes>
       </BrowserRouter>
     </>
