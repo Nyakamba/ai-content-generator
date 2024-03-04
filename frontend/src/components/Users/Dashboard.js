@@ -166,7 +166,7 @@ const Dashboard = () => {
                         <div className="flex items-center">
                           <p
                             className={`text-sm font-semibold ${
-                              payment?.status === "succeeded"
+                              payment?.status === "success"
                                 ? "text-green-500"
                                 : "text-orange-500"
                             }`}
