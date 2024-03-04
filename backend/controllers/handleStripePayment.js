@@ -42,8 +42,9 @@ const verifyPayment = asyncHandler(async (req, res) => {
   const { paymentId } = req.params;
   try {
     const paymentIntent = await stripe.paymentIntents.retrieve(paymentId);
-    // console.log(paymentIntent);
-    if (paymentIntent.status !== "succeded") {
+    console.log(paymentIntent);
+
+    if (paymentIntent.status === "succeeded") {
       //get the info metadata
       const metadata = paymentIntent?.metadata;
       const subscriptionPlan = metadata?.subscriptionPlan;
