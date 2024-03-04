@@ -59,6 +59,7 @@ export default function Plans() {
       navigate("/free-plan");
     } else {
       //navigate the actual payment
+      navigate(`/checkout/${plan?.id}?amount=${plan?.amount}`);
     }
   };
   return (
