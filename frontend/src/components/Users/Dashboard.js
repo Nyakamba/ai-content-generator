@@ -9,6 +9,7 @@ const Dashboard = () => {
     queryFn: getUserProfileApi,
     queryKey: ["profile"],
   });
+  console.log(data);
   //display loading
   if (isLoading) {
     return <StatusMessage type="loading" message="Loading please wait..." />;
