@@ -12,7 +12,7 @@ const PaymentSuccess = () => {
   const paymentIntentID = searchParams.get("payment_intent");
 
   //use query
-  const { isLoading, isError, data, isPending, isSuccess } = useQuery({
+  const { isLoading, isError } = useQuery({
     queryFn: () => verifyPaymentAPI(paymentIntentID),
   });
 

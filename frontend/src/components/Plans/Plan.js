@@ -52,6 +52,7 @@ function classNames(...classes) {
 
 export default function Plans() {
   const [selectedPlan, setSelectedPlan] = useState(null);
+  console.log(selectedPlan);
   const navigate = useNavigate();
   const handleSelect = (plan) => {
     setSelectedPlan(plan);
@@ -111,7 +112,7 @@ export default function Plans() {
                   {tier.price}
                 </span>
               </p>
-              <a
+              <button
                 aria-describedby={tier.id}
                 className={classNames(
                   tier.mostPopular
@@ -121,7 +122,7 @@ export default function Plans() {
                 )}
               >
                 Buy plan
-              </a>
+              </button>
               <ul className="mt-8 space-y-3 text-sm leading-6 text-gray-300 xl:mt-10">
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex gap-x-3">

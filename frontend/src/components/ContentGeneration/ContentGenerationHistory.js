@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import { FaRegEdit, FaTrashAlt, FaEye, FaPlusSquare } from "react-icons/fa";
+import { FaPlusSquare } from "react-icons/fa";
 import { getUserProfileApi } from "../../apis/user/usersAPI";
 import StatusMessage from "../Alert/Statusmessage";
 import { Link } from "react-router-dom";
