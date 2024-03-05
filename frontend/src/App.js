@@ -12,6 +12,9 @@ import Plans from "./components/Plans/Plan";
 import FreePlanSignup from "./components/StripePayment/FreePlanSignUp";
 import CheckoutForm from "./components/StripePayment/CheckoutForm";
 import PaymentSuccess from "./components/StripePayment/PaymentSuccess";
+import ContentGenerationHistory from "./components/ContentGeneration/ContentGenerationHistory";
+import AppFeatures from "./components/Features/Features";
+import AboutUs from "./components/About/About";
 
 export default function App() {
   //custom auth hook
@@ -41,11 +44,42 @@ export default function App() {
               </AuthRoute>
             }
           />
+          <Route
+            path="/history"
+            element={
+              <AuthRoute>
+                <ContentGenerationHistory />
+              </AuthRoute>
+            }
+          />
           <Route path="/" element={<Home />} />
           <Route path="/plans" element={<Plans />} />
-          <Route path="/free-plan" element={<FreePlanSignup />} />
-          <Route path="/checkout/:plan" element={<CheckoutForm />} />
-          <Route path="/success" element={<PaymentSuccess />} />
+          <Route
+            path="/free-plan"
+            element={
+              <AuthRoute>
+                <FreePlanSignup />
+              </AuthRoute>
+            }
+          />
+          <Route
+            path="/checkout/:plan"
+            element={
+              <AuthRoute>
+                <CheckoutForm />
+              </AuthRoute>
+            }
+          />
+          <Route
+            path="/success"
+            element={
+              <AuthRoute>
+                <PaymentSuccess />
+              </AuthRoute>
+            }
+          />
+          <Route path="/features" element={<AppFeatures />} />
+          <Route path="/about" element={<AboutUs />} />
         </Routes>
       </BrowserRouter>
     </>
