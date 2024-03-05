@@ -120,7 +120,6 @@ const verifyPayment = asyncHandler(async (req, res) => {
 const handleFreeSubscription = asyncHandler(async (req, res) => {
   //Get the login user
   const user = req?.user;
-  console.log(user);
 
   //check if user account should be renewed or not
   try {
