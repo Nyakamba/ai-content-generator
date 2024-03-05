@@ -41,7 +41,7 @@ const Registration = () => {
 
       setTimeout(() => {
         navigate("/login"); // Redirect user to login page
-      }, 5000);
+      }, 2000);
     },
   });
   console.log(mutation);
