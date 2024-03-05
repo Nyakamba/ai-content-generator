@@ -58,7 +58,7 @@ export default function Plans() {
     if (plan?.id === "Free") {
       navigate("/free-plan");
     } else {
-      //navigate the actual payment
+      //navigate to the actual payment
       navigate(`/checkout/${plan?.id}?amount=${plan?.amount}`);
     }
   };
