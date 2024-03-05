@@ -92,7 +92,7 @@ cron.schedule("0 0 1 * * *", async () => {
 app.use(express.json()); //pas incoming json data
 app.use(cookieParser()); //pass the cookie automaticallly
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://dancing-lebkuchen-9aef47.netlify.app", //"http://localhost:3000",
   credentials: true,
 };
 app.use(cors(corsOptions));
