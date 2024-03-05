@@ -25,7 +25,7 @@ const Login = () => {
     if (isAuthenticated) {
       navigate("/dashboard");
     }
-  }, [isAuthenticated]);
+  }, [navigate, isAuthenticated]);
 
   // mutation
   const mutation = useMutation({ mutationFn: loginAPI });
