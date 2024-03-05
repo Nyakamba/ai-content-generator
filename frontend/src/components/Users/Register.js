@@ -23,7 +23,7 @@ const Registration = () => {
     if (isAuthenticated) {
       navigate("/dashboard");
     }
-  }, [navigate, isAuthenticated]);
+  }, [isAuthenticated]);
   // mutation
   const mutation = useMutation({ mutationFn: registerAPI });
   // Formik setup for form handling
