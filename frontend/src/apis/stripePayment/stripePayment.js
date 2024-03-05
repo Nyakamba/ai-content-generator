@@ -2,7 +2,7 @@ import axios from "axios";
 //stripe payment
 export const handleFreeSubscriptionAPI = async () => {
   const response = await axios.post(
-    "http://localhost:5000/api/v1/stripe/free-plan",
+    "https://ai-content-generator.onrender.com/api/v1/stripe/free-plan",
     {},
     {
       withCredentials: true,
@@ -14,7 +14,7 @@ export const handleFreeSubscriptionAPI = async () => {
 //stripe payment intent
 export const createStripePaymentIntentAPI = async (payment) => {
   const response = await axios.post(
-    "http://localhost:5000/api/v1/stripe/checkout",
+    "https://ai-content-generator.onrender.com/api/v1/stripe/checkout",
     {
       amount: payment?.amount,
       subscriptionPlan: payment?.plan,
@@ -29,7 +29,7 @@ export const createStripePaymentIntentAPI = async (payment) => {
 //verify payment intent
 export const verifyPaymentAPI = async (paymentId) => {
   const response = await axios.post(
-    `http://localhost:5000/api/v1/stripe/verify-payment/${paymentId}`,
+    `https://ai-content-generator.onrender.com/api/v1/stripe/verify-payment/${paymentId}`,
     {},
     {
       withCredentials: true,
