@@ -46,7 +46,7 @@ const Login = () => {
       }, 2000);
     },
   });
-
+  console.log(mutation);
   //update is authenticated gd
   useEffect(() => {
     if (mutation.isSuccess) {
