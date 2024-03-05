@@ -11,7 +11,7 @@ const User = require("./models/User");
 require("./utils/connectDB")();
 
 const app = express();
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 5000;
 
 //Cron for the trial period : run every single day
 cron.schedule(" 0 0 * * * * ", async () => {
